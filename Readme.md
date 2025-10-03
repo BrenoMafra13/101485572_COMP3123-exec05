@@ -62,9 +62,13 @@ app.use((err,req,res,next) => {
 
 - Why is `express.Router()` used in Express.js applications, and how does it benefit the code structure?
 
+My answer: It is used to split routes into smaller modules. It helps organize the code instead of keeping all routes in index.js.
+
 **7. Error Handling in Express.js**
 
 - How would you implement error handling in the Express routes to ensure that any issues (such as file not found or server errors) are appropriately handled? Provide an example.
+
+My answer: The idea is to catch errors and respond in a controlled way. If something goes wrong, instead of crashing, the app responds with a status and message.
 
 ---
 
@@ -73,6 +77,9 @@ app.use((err,req,res,next) => {
 **7. Dynamic Port Binding in Express.js**
 
 - Explain how the `app.listen(process.env.port || 8081)` line works and why it's useful in production environments.
+
+
+My answer: Tries to use the port provided by the environment, if nothing is provided, it uses 8081 as the default. It is useful in production because servers assign ports automatically, but on local machines you already have a fixed port.
 
 ---
 # Submission Guideline
