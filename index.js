@@ -1,29 +1,24 @@
 const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+
 const app = express();
 const userRouter = require('./routes/users');
 
+app.use(bodyParser.json());
 
-// Add User Router
-app.use('api/v1/user', userRouter);
+app.use('/api/v1/user', userRouter);
 
-/*
-- Create new html file name home.html 
-- add <h1> tag with message "Welcome to ExpressJs Tutorial"
-- Return home.html page to client
-*/
-router.get('/home', (req,res) => {
-  res.send('This is home router');
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home.html'));
 });
 
-
-/*
-Add error handling middleware to handle below error
-- Return 500 page with message "Server Error"
-*/
-app.use((err,req,res,next) => {
-  res.send('This is error router');
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Server Error");
 });
 
-app.listen(process.env.port || 8081);
-
-console.log('Web Server is listening at port '+ (process.env.port || 8081));
+const PORT = process.env.port || 8081;
+app.listen(PORT, () => {
+  console.log('Web Server is listening at port ' + PORT);
+});
