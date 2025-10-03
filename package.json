@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Pritesh Patel - Exercise Lab 05",
+  "author": "Breno Lopes Mafra - Exercise Lab 05",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^2.2.0",
